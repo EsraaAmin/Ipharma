@@ -1,0 +1,2303 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Ipharama</title>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Place favicon.ico in the root directory -->
+  <!-- build:css styles/vendor.css -->
+  <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+    integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+  <!-- endbuild -->
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+  <!-- build:js scripts/modernizr.js -->
+  <script src="scripts/modernizr.js"></script>
+  <!-- endbuild -->
+</head>
+
+<body>
+  <!--[if IE]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+  <div class="container">
+    <div class="header">
+      <a class="logoContainer" href="/"> <span class="text-muted"><span class="firstLetter"><span><i class="fas fa-info"></i></span></span><span
+            class="logo">Pharama</span></span>
+      </a>
+      <ul class="nav nav-pills float-right">
+        <a href="search.html">
+          <span><i class="fas fa fa-search mr-3"></i></span>
+        </a>
+        <span><i class="fas fa fa-shopping-cart mr-3"></i></span>
+        <span><i class="fas fa fa-bell mr-3"></i></span>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <img src="./images/user.png" alt="">
+            Mostafa Mahmoud
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </div>
+        <button class="btn btn-link bd-search-docs-toggle p-0 ml-3" type="button" data-toggle="collapse"
+          data-target="#bd-docs-nav" aria-controls="bd-docs-nav" aria-expanded="false"
+          aria-label="Toggle docs navigation"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30"
+            height="30" focusable="false">
+            <title>Menu</title>
+            <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10"
+              d="M4 7h22M4 15h22M4 23h22"></path>
+          </svg>
+        </button>
+
+      </ul>
+    </div>
+    <div class="row mt-5">
+      <div class="col-12">
+        <p class="cardTitle"><i class="fas fa fa-cube mr-2"></i><strong>Orders</strong></p>
+
+      </div>
+    </div>
+
+    <div class="row tabsContainer">
+      <!-- Quick search field -->
+
+
+      <ul class="col-12 nav nav-tabs pb-3" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="Ongoing-tab" data-toggle="tab" href="#Ongoing" role="tab"
+            aria-controls="Ongoing" aria-selected="true">On going</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="Delivered-tab" data-toggle="tab" href="#Delivered" role="tab"
+            aria-controls="Delivered" aria-selected="false">Delivered</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="NotDelivered-tab" data-toggle="tab" href="#NotDelivered" role="tab"
+            aria-controls="NotDelivered" aria-selected="false">Not Delivered</a>
+        </li>
+      </ul>
+
+      <div class="col-12 tab-content" id="myTabContent">
+        <!-- first tab -->
+        <div class="tab-pane fade show active" id="Ongoing" role="tabpanel" aria-labelledby="Ongoing-tab">
+          <div class="form-group pull-right searchbox">
+            <input type="text" class="search form-control" placeholder="Search by order number or commercial name">
+            <span role="button" data-toggle="collapse" href="#filter1" aria-expanded="false"><i
+                class="fal fa fa-filter text-white"></i></span>
+          </div>
+
+          <div class="collapse   mb-3 " id="filter1">
+
+            <div class="filterRow d-flex align-items-center justify-content-center col-12">
+
+              <div class="row w-100">
+                <div class="title col-12 mb-4"><i class="fal fa fa-filter mr-1"></i>Filter</div>
+                <span role="button" data-toggle="collapse" href="#filter1" aria-expanded="false"
+                  class="text-right closeIcon"><i class="fas fa fa-times"></i></span>
+                <div class="col-lg-3 col-md-6 col-12">
+                  <p class="mb-1">Supplier</p>
+                  <select class="form-control">
+                    <option>Select Supplier</option>
+                  </select>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                  <p class="mb-1">Status</p>
+                  <select class="form-control">
+                    <option>Select status</option>
+                  </select>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                  <p class="mb-1">Date from</p>
+                  <input class="form-control" id="datepickerFrom" placeholder="Select date" />
+
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                  <p class="mb-1">Date to</p>
+                  <input class="form-control" id="datepickerTo" placeholder="Select date" />
+                </div>
+
+                <div class="col-12 text-right applyFilter mt-3">
+                  <button class="btn btn-default" id="apply">Apply</button>
+                  <button class="btn btn-default" id="clear">Clear</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <p class="rowsNum float-right mb-1">16 of 300 orders</p>
+          </div>
+          <table class="table table-responsive">
+            <tbody>
+              <tr class="parentRow">
+                <td role="button" data-toggle="collapse" href="#demo1" aria-expanded="false" aria-controls="demo1"
+                  data-title="WO Ref" class="col-md-4">
+                  <p class="mb-0">Order No. 12456988 | 4 items <span class="itemStatus newItem">New</span></p>
+                  <P class="mb-0 normalTxt">Supplier Name</P>
+                </td>
+                <td data-title="Reported" class="col-md-3 text-center">
+                  <p class="mb-0 normalTxt">Grand Total: <strong>8000</strong> AED</p>
+                </td>
+                <td data-title="Type" class="col-md-2 text-center">
+                  <p class="mb-0 normalTxt"><i class="fas fa fa-gift mr-1"></i> 500 pt</p>
+                </td>
+                <td data-title="Completed" class="col-md-3 text-center">
+                  <p class="mb-0 normalTxt">25, December 2019 <i class="fas fa-ellipsis-v ml-1" id="showSelect1"></i></p>
+                  <select name="" id="" class="form-control editRow">
+                    <option value="edit">Edit</option>
+                    <option value="cancle">Cancle</option>
+                  </select>
+                </td>
+
+              </tr>
+              <tr class="childRow">
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo1">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr>
+                          <td rowspan="2">
+                            <div class="media">
+                              <img src="./images/MGK5158-GSK-Panadol-Extra-455x455.png" alt="Generic placeholder image">
+
+                            </div>
+                          </td>
+
+                          <td>
+                            <div class="media-body">
+                              <h6 class="mb-0"><strong>Commercial</strong></h6>
+                              <span class="mb-0">Form</span>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="secondRow">
+                          <td>
+                            <span><i class="fas fa-cubes mr-1"></i> Quantity <br> 100</span>
+                            <div class="mt-3"><strong>Payment Method:</strong><br>Cheque post date</div>
+                          </td>
+
+                          <td>
+                            <span class="mr-5"><i class="fas fa-star mr-1"></i> Bonus <br> 20</span>
+
+                            <span class="mr-5"><i class="fas fa-database mr-1"></i>WSP (AED)<br> 22
+                            </span>
+                            <span class="mr-4"><i class="fas fa-database mr-1"></i>RSP (AED ) <br> 22</span>
+                            <span class="mr-3"><i class="far fa-money-bill-alt mr-1"></i>Tax <br> 50%</span>
+                            <p class="mt-3 normalTxt">
+                              <span>Comments:</span> <br>
+                              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                              been the industry's has been the industry's and typesetting industry. Lorem Ipsum has been
+                              the Lorem Ipsum is simply.
+
+                            </p>
+                          </td>
+
+
+
+
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+
+                <td class="hiddenRow w-100 text-center cancleBg" style="vertical-align: middle;" colspan="2">
+                  <div class="collapse" id="demo1">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr class="secondRow">
+                          <td>
+                            <span>Taxes</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+
+                          <td>
+                            <span>Discount</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+
+                          <td>
+                            <span>Total</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo1">
+                    <table class="table table-nested">
+                      <tbody>
+
+                        <tr>
+
+
+                          <td class="text-right">
+                            <span class="cancel" id="cancle">Cancle</span>
+                          </td>
+
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+
+              <tr class="canceledRow ">
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo1">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr>
+                          <td>
+                            <div class="media">
+                              <img class="mr-3" src="./images/MGK5158-GSK-Panadol-Extra-455x455.png"
+                                alt="Generic placeholder image">
+                              <div class="media-body">
+                                <h6 class="mb-0"><strong>Commercial</strong></h6>
+                                <span class="mb-0">Form</span>
+                              </div>
+                            </div>
+                          </td>
+
+
+                        </tr>
+
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+
+                <td class="hiddenRow w-100 text-center" colspan="3">
+                  <div class="collapse" id="demo1">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr>
+                          <td colspan="3">
+                            <div><i class="far fa-times-circle fa-2x"></i></div>
+                            <p>Are you sure that you want to cancel this item from the order?</p>
+                            <button class="btn btn-default" id="confCancle">Confirm</button>
+                            <button class="btn btn-default" id="refsCanclel">Cancle</button>
+
+                          </td>
+
+
+                        </tr>
+
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+
+
+
+
+              <tr class="parentRow">
+                <td data-title="WO Ref" class="col-md-4" role="button" data-toggle="collapse" href="#demo2"
+                  aria-expanded="false" aria-controls="demo2">
+                  <p class="mb-0">Order No. 12456988 | 4 items <span class="itemStatus newItem">New</span></p>
+                  <P class="mb-0 normalTxt">Supplier Name</P>
+                </td>
+                <td data-title="Reported" class="col-md-3 text-center">
+                  <p class="mb-0 normalTxt">Grand Total: <strong>8000</strong> AED</p>
+                </td>
+                <td data-title="Type" class="col-md-2 text-center">
+                  <p class="mb-0 normalTxt"><i class="fas fa fa-gift mr-1"></i> 500 pt</p>
+                </td>
+                <td data-title="Completed" class="col-md-3 text-center">
+                  <p class="mb-0 normalTxt">25, December 2019 <i class="fas fa-ellipsis-v ml-1"></i></p>
+                </td>
+              </tr>
+              <tr class="childRow ">
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo2">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr>
+                          <td rowspan="2">
+                            <div class="media">
+                              <img src="./images/MGK5158-GSK-Panadol-Extra-455x455.png" alt="Generic placeholder image">
+
+                            </div>
+                          </td>
+
+                          <td>
+                            <div class="media-body">
+                              <h6 class="mb-0"><strong>Commercial</strong></h6>
+                              <span class="mb-0">Form</span>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="secondRow">
+                          <td>
+                            <span><i class="fas fa-cubes mr-1"></i> Quantity <br> 100</span>
+                            <div class="mt-3"><strong>Payment Method:</strong><br>Cheque post date</div>
+                          </td>
+
+                          <td>
+                            <span class="mr-5"><i class="fas fa-star mr-1"></i> Bonus <br> 20</span>
+
+                            <span class="mr-5"><i class="fas fa-database"></i>WSP (AED)<br> 22
+                            </span>
+                            <span class="mr-4"><i class="fas fa-database mr-1"></i>RSP (AED ) <br> 22</span>
+                            <span class="mr-3"><i class="far fa-money-bill-alt mr-1"></i>Tax <br> 50%</span>
+                            <p class="mt-3 normalTxt">
+                              <span>Comments:</span> <br>
+                              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                              been the industry's has been the industry's and typesetting industry. Lorem Ipsum has been
+                              the Lorem Ipsum is simply.
+
+                            </p>
+                          </td>
+
+
+
+
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+
+                <td class="hiddenRow w-100 text-center" style="vertical-align: middle;" colspan="2">
+                  <div class="collapse" id="demo2">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr class="secondRow">
+                          <td>
+                            <span>Taxes</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+
+                          <td>
+                            <span>Discount</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+
+                          <td>
+                            <span>Total</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo2">
+                    <table class="table table-nested">
+                      <tbody>
+
+                        <tr>
+
+
+                          <td class="text-right">
+                            <span class="cancel">Cancle</span>
+                          </td>
+
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+              <!-- <tr class="canceledRow ">
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo2">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr>
+                          <td>
+                            <div class="media">
+                              <img class="mr-3" src="./images/MGK5158-GSK-Panadol-Extra-455x455.png" alt="Generic placeholder image">
+                              <div class="media-body">
+                                <h6 class="mb-0"><strong>Commercial</strong></h6>
+                                <span class="mb-0">Form</span>
+                              </div>
+                            </div>
+                          </td>
+
+            
+                        </tr>
+                     
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+
+                <td class="hiddenRow w-100 text-center" colspan="3">
+                  <div class="collapse" id="demo2">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr>
+                          <td colspan="3">
+                            <p>Are you sure that you want to cancel this item from the order?</p>
+                            <button class="btn btn-default">Confirm</button>
+                            <button class="btn btn-default refsCancel">Cancle</button>
+
+                          </td>
+
+                        
+                        </tr>
+                     
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+              </tr> -->
+
+              <tr class="parentRow">
+                <td data-title="WO Ref" class="col-md-4" role="button" data-toggle="collapse" href="#demo3"
+                  aria-expanded="false" aria-controls="demo2">
+                  <p class="mb-0">Order No. 12456988 | 4 items <span class="itemStatus newItem">New</span></p>
+                  <P class="mb-0 normalTxt">Supplier Name</P>
+                </td>
+                <td data-title="Reported" class="col-md-3 text-center">
+                  <p class="mb-0 normalTxt">Grand Total: <strong>8000</strong> AED</p>
+                </td>
+                <td data-title="Type" class="col-md-2 text-center">
+                  <p class="mb-0 normalTxt"><i class="fas fa fa-gift mr-1"></i> 500 pt</p>
+                </td>
+                <td data-title="Completed" class="col-md-3 text-center">
+                  <p class="mb-0 normalTxt">25, December 2019 <i class="fas fa-ellipsis-v ml-1"></i></p>
+                </td>
+              </tr>
+              <tr class="childRow">
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo3">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr>
+                          <td rowspan="2">
+                            <div class="media">
+                              <img src="./images/MGK5158-GSK-Panadol-Extra-455x455.png" alt="Generic placeholder image">
+
+                            </div>
+                          </td>
+
+                          <td>
+                            <div class="media-body">
+                              <h6 class="mb-0"><strong>Commercial</strong></h6>
+                              <span class="mb-0">Form</span>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="secondRow">
+                          <td>
+                            <span><i class="fas fa-cubes mr-1"></i> Quantity <br> 100</span>
+                            <div class="mt-3"><strong>Payment Method:</strong><br>Cheque post date</div>
+                          </td>
+
+                          <td>
+                            <span class="mr-5"><i class="fas fa-star mr-1"></i> Bonus <br> 20</span>
+
+                            <span class="mr-5"><i class="fas fa-database"></i>WSP (AED)<br> 22
+                            </span>
+                            <span class="mr-4"><i class="fas fa-database mr-1"></i>RSP (AED ) <br> 22</span>
+                            <span class="mr-3"><i class="far fa-money-bill-alt mr-1"></i>Tax <br> 50%</span>
+                            <p class="mt-3 normalTxt">
+                              <span>Comments:</span> <br>
+                              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                              been the industry's has been the industry's and typesetting industry. Lorem Ipsum has been
+                              the Lorem Ipsum is simply.
+
+                            </p>
+                          </td>
+
+
+
+
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+
+                <td class="hiddenRow w-100 text-center" style="vertical-align: middle;" colspan="2">
+                  <div class="collapse" id="demo3">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr class="secondRow">
+                          <td>
+                            <span>Taxes</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+
+                          <td>
+                            <span>Discount</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+
+                          <td>
+                            <span>Total</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo3">
+                    <table class="table table-nested">
+                      <tbody>
+
+                        <tr>
+
+
+                          <td class="text-right">
+                            <span class="cancel">Cancle</span>
+                          </td>
+
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- <tr class="canceledRow">
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo3">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr>
+                          <td>
+                            <div class="media">
+                              <img class="mr-3" src="./images/MGK5158-GSK-Panadol-Extra-455x455.png" alt="Generic placeholder image">
+                              <div class="media-body">
+                                <h6 class="mb-0"><strong>Commercial</strong></h6>
+                                <span class="mb-0">Form</span>
+                              </div>
+                            </div>
+                          </td>
+            
+                        </tr>
+                     
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+
+                <td class="hiddenRow w-100 text-center" colspan="3">
+                  <div class="collapse" id="demo3">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr>
+                          <td colspan="3">
+                            <p>Are you sure that you want to cancel this item from the order?</p>
+                            <button class="btn btn-default">Confirm</button>
+                            <button class="btn btn-default refsCancel">Cancle</button>
+
+                          </td>
+
+                        
+                        </tr>
+                     
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+              </tr> -->
+
+
+
+              <tr class="parentRow inprogRow">
+                <td data-title="WO Ref" class="col-md-4" role="button" data-toggle="collapse" href="#demo4"
+                  aria-expanded="false" aria-controls="demo4">
+                  <p class="mb-0">Order No. 12456988 | 4 items <span class="itemStatus inprogItem">In progress</span>
+                  </p>
+                  <P class="mb-0 normalTxt">Supplier Name</P>
+                </td>
+                <td data-title="Reported" class="col-md-3 text-center">
+                  <p class="mb-0 normalTxt">Grand Total: <strong>8000</strong> AED</p>
+                </td>
+                <td data-title="Type" class="col-md-2 text-center">
+                  <p class="mb-0 normalTxt"><i class="fas fa fa-gift mr-1"></i> 500 pt</p>
+                </td>
+                <td data-title="Completed" class="col-md-3 text-center">
+                  <p class="mb-0 normalTxt">25, December 2019 <i class="fas fa-ellipsis-v ml-1"></i></p>
+                </td>
+              </tr>
+              <tr class="childRow">
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo4">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr>
+                          <td rowspan="2">
+                            <div class="media">
+                              <img src="./images/MGK5158-GSK-Panadol-Extra-455x455.png" alt="Generic placeholder image">
+
+                            </div>
+                          </td>
+
+                          <td>
+                            <div class="media-body">
+                              <h6 class="mb-0"><strong>Commercial</strong></h6>
+                              <span class="mb-0">Form</span>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="secondRow">
+                          <td>
+                            <span><i class="fas fa-cubes mr-1"></i> Quantity <br> 100</span>
+                            <div class="mt-3"><strong>Payment Method:</strong><br>Cheque post date</div>
+                          </td>
+
+                          <td>
+                            <span class="mr-5"><i class="fas fa-star mr-1"></i> Bonus <br> 20</span>
+
+                            <span class="mr-5"><i class="fas fa-database"></i>WSP (AED)<br> 22
+                            </span>
+                            <span class="mr-4"><i class="fas fa-database mr-1"></i>RSP (AED ) <br> 22</span>
+                            <span class="mr-3"><i class="far fa-money-bill-alt mr-1"></i>Tax <br> 50%</span>
+                            <p class="mt-3 normalTxt">
+                              <span>Comments:</span> <br>
+                              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                              been the industry's has been the industry's and typesetting industry. Lorem Ipsum has been
+                              the Lorem Ipsum is simply.
+
+                            </p>
+                          </td>
+
+
+
+
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+
+                <td class="hiddenRow w-100 text-center" style="vertical-align: middle;" colspan="2">
+                  <div class="collapse" id="demo4">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr class="secondRow">
+                          <td>
+                            <span>Taxes</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+
+                          <td>
+                            <span>Discount</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+
+                          <td>
+                            <span>Total</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo4">
+                    <table class="table table-nested">
+                      <tbody>
+
+                        <tr>
+
+
+                          <td class="text-right">
+                            <span class="cancel">Cancle</span>
+                          </td>
+
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- <tr class="canceledRow">
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo4">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr>
+                          <td>
+                            <div class="media">
+                              <img class="mr-3" src="./images/MGK5158-GSK-Panadol-Extra-455x455.png" alt="Generic placeholder image">
+                              <div class="media-body">
+                                <h6 class="mb-0"><strong>Commercial</strong></h6>
+                                <span class="mb-0">Form</span>
+                              </div>
+                            </div>
+                          </td>
+
+            
+                        </tr>
+                     
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+
+                <td class="hiddenRow w-100 text-center" colspan="3">
+                  <div class="collapse" id="demo4">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr>
+                          <td colspan="3">
+                            <p>Are you sure that you want to cancel this item from the order?</p>
+                            <button class="btn btn-default">Confirm</button>
+                            <button class="btn btn-default refsCancel">Cancle</button>
+
+                          </td>
+
+                        
+                        </tr>
+                     
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+              </tr> -->
+
+              <tr class="parentRow outDelivRow">
+                <td data-title="WO Ref" class="col-md-4" role="button" data-toggle="collapse" href="#demo5"
+                  aria-expanded="false" aria-controls="demo5">
+                  <p class="mb-0">Order No. 12456988 | 4 items <span class="itemStatus outDelivItem">Out for
+                      derlivery</span></p>
+                  <P class="mb-0 normalTxt">Supplier Name</P>
+                </td>
+                <td data-title="Reported" class="col-md-3 text-center">
+                  <p class="mb-0 normalTxt">Grand Total: <strong>8000</strong> AED</p>
+                </td>
+                <td data-title="Type" class="col-md-2 text-center">
+                  <p class="mb-0 normalTxt"><i class="fas fa fa-gift mr-1"></i> 500 pt</p>
+                </td>
+                <td data-title="Completed" class="col-md-3 text-center">
+                  <p class="mb-0 normalTxt">25, December 2019 <i class="fas fa-ellipsis-v ml-1"></i></p>
+                </td>
+              </tr>
+              <tr class="childRow ">
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo5">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr>
+                          <td rowspan="2">
+                            <div class="media">
+                              <img src="./images/MGK5158-GSK-Panadol-Extra-455x455.png" alt="Generic placeholder image">
+
+                            </div>
+                          </td>
+
+                          <td>
+                            <div class="media-body">
+                              <h6 class="mb-0"><strong>Commercial</strong></h6>
+                              <span class="mb-0">Form</span>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="secondRow">
+                          <td>
+                            <span><i class="fas fa-cubes mr-1"></i> Quantity <br> 100</span>
+                            <div class="mt-3"><strong>Payment Method:</strong><br>Cheque post date</div>
+                          </td>
+
+                          <td>
+                            <span class="mr-5"><i class="fas fa-star mr-1"></i> Bonus <br> 20</span>
+
+                            <span class="mr-5"><i class="fas fa-database"></i>WSP (AED)<br> 22
+                            </span>
+                            <span class="mr-4"><i class="fas fa-database mr-1"></i>RSP (AED ) <br> 22</span>
+                            <span class="mr-3"><i class="far fa-money-bill-alt mr-1"></i>Tax <br> 50%</span>
+                            <p class="mt-3 normalTxt">
+                              <span>Comments:</span> <br>
+                              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                              been the industry's has been the industry's and typesetting industry. Lorem Ipsum has been
+                              the Lorem Ipsum is simply.
+
+                            </p>
+                          </td>
+
+
+
+
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+
+                <td class="hiddenRow w-100 text-center" style="vertical-align: middle;" colspan="2">
+                  <div class="collapse" id="demo5">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr class="secondRow">
+                          <td>
+                            <span>Taxes</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+
+                          <td>
+                            <span>Discount</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+
+                          <td>
+                            <span>Total</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo5">
+                    <table class="table table-nested">
+                      <tbody>
+
+                        <tr>
+
+
+                          <td class="text-right">
+                            <span class="cancel">Cancle</span>
+                          </td>
+
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- <tr class="canceledRow ">
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo5">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr>
+                          <td>
+                            <div class="media">
+                              <img class="mr-3" src="./images/MGK5158-GSK-Panadol-Extra-455x455.png" alt="Generic placeholder image">
+                              <div class="media-body">
+                                <h6 class="mb-0"><strong>Commercial</strong></h6>
+                                <span class="mb-0">Form</span>
+                              </div>
+                            </div>
+                          </td>
+
+            
+                        </tr>
+                     
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+
+                <td class="hiddenRow w-100 text-center" colspan="3">
+                  <div class="collapse" id="demo5">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr>
+                          <td colspan="3">
+                            <p>Are you sure that you want to cancel this item from the order?</p>
+                            <button class="btn btn-default">Confirm</button>
+                            <button class="btn btn-default refsCancel">Cancle</button>
+
+                          </td>
+
+                        
+                        </tr>
+                     
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+              </tr> -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- second tab -->
+        <div class="tab-pane fade" id="Delivered" role="tabpanel" aria-labelledby="Delivered-tab">
+          <div class="form-group pull-right searchbox">
+            <input type="text" class="search form-control" placeholder="Search by order number or commercial name">
+            <span role="button" data-toggle="collapse" href="#filter2" aria-expanded="false"><i
+                class="fal fa fa-filter text-white"></i></span>
+          </div>
+
+          <div class="collapse   mb-3 " id="filter2">
+
+            <div class="filterRow d-flex align-items-center justify-content-center col-12">
+
+              <div class="row w-100">
+                <div class="title col-12 mb-4"><i class="fal fa fa-filter mr-1"></i>Filter</div>
+                <span role="button" data-toggle="collapse" href="#filter2" aria-expanded="false"
+                  class="text-right closeIcon"><i class="fas fa fa-times"></i></span>
+                <div class="col-lg-3 col-md-6 col-12">
+                  <p class="mb-1">Supplier</p>
+                  <select class="form-control">
+                    <option>Select Supplier</option>
+                  </select>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                  <p class="mb-1">Status</p>
+                  <select class="form-control">
+                    <option>Default status</option>
+                  </select>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                  <p class="mb-1">Date from</p>
+                  <input class="form-control" id="datepickerFrom" placeholder="Select date" />
+
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                  <p class="mb-1">Date to</p>
+                  <input class="form-control" id="datepickerTo" placeholder="Select date" />
+                </div>
+
+                <div class="col-12 text-right applyFilter mt-3">
+                  <button class="btn btn-default" id="apply">Apply</button>
+                  <button class="btn btn-default" id="clear">Clear</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <p class="rowsNum float-right mb-1">16 of 300 orders</p>
+          </div>
+          <table class="table table-responsive">
+            <tbody>
+              <tr class="parentRow inprogRow">
+                <td role="button" data-toggle="collapse" href="#demo6" aria-expanded="false" aria-controls="demo6"
+                  data-title="WO Ref" class="col-md-4">
+                  <p class="mb-0">Order No. 12456988 | 4 items <span class="itemStatus inprogItem">inprogress</span></p>
+                  <P class="mb-0 normalTxt">Supplier Name</P>
+                </td>
+                <td data-title="Reported" class="col-md-3 text-center">
+                  <p class="mb-0 normalTxt">Grand Total: <strong>8000</strong> AED</p>
+                </td>
+                <td data-title="Type" class="col-md-2 text-center">
+                  <p class="mb-0 normalTxt"><i class="fas fa fa-gift mr-1"></i> 500 pt</p>
+                </td>
+                <td data-title="Completed" class="col-md-3 text-center">
+                  <p class="mb-0 normalTxt">25, December 2019 <i class="fas fa-ellipsis-v ml-1" id="showSelect"></i></p>
+                  <select name="" id="" class="form-control editRow">
+                    <option value="edit">Edit</option>
+                    <option value="cancle">Cancle</option>
+                  </select>
+                </td>
+
+              </tr>
+              <tr class="childRow">
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo6">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr>
+                          <td rowspan="2">
+                            <div class="media">
+                              <img src="./images/MGK5158-GSK-Panadol-Extra-455x455.png" alt="Generic placeholder image">
+
+                            </div>
+                          </td>
+
+                          <td>
+                            <div class="media-body">
+                              <h6 class="mb-0"><strong>Commercial</strong></h6>
+                              <span class="mb-0">Form</span>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="secondRow">
+                          <td>
+                            <span><i class="fas fa-cubes mr-1"></i> Quantity <br> 100</span>
+                            <div class="mt-3"><strong>Payment Method:</strong><br>Cheque post date</div>
+                          </td>
+
+                          <td>
+                            <span class="mr-5"><i class="fas fa-star mr-1"></i> Bonus <br> 20</span>
+
+                            <span class="mr-5"><i class="fas fa-database mr-1"></i>WSP (AED)<br> 22
+                            </span>
+                            <span class="mr-4"><i class="fas fa-database mr-1"></i>RSP (AED ) <br> 22</span>
+                            <span class="mr-3"><i class="far fa-money-bill-alt mr-1"></i>Tax <br> 50%</span>
+                            <p class="mt-3 normalTxt">
+                              <span>Comments:</span> <br>
+                              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                              been the industry's has been the industry's and typesetting industry. Lorem Ipsum has been
+                              the Lorem Ipsum is simply.
+
+                            </p>
+                          </td>
+
+
+
+
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+
+                <td class="hiddenRow w-100 text-center" style="vertical-align: middle;" colspan="2">
+                  <div class="collapse" id="demo6">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr class="secondRow">
+                          <td>
+                            <span>Taxes</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+
+                          <td>
+                            <span>Discount</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+
+                          <td>
+                            <span>Total</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo6">
+                    <table class="table table-nested">
+                      <tbody>
+
+                        <tr>
+
+
+                          <td class="text-right">
+                            <span class="cancel" id="cancle">Cancle</span>
+                          </td>
+
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+
+              <tr class="canceledRow ">
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo6">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr>
+                          <td>
+                            <div class="media">
+                              <img class="mr-3" src="./images/MGK5158-GSK-Panadol-Extra-455x455.png"
+                                alt="Generic placeholder image">
+                              <div class="media-body">
+                                <h6 class="mb-0"><strong>Commercial</strong></h6>
+                                <span class="mb-0">Form</span>
+                              </div>
+                            </div>
+                          </td>
+
+
+                        </tr>
+
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+
+                <td class="hiddenRow w-100 text-center" colspan="3">
+                  <div class="collapse" id="demo6">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr>
+                          <td colspan="3">
+                            <p>Are you sure that you want to cancel this item from the order?</p>
+                            <button class="btn btn-default" id="confCancle">Confirm</button>
+                            <button class="btn btn-default" id="refsCanclel">Cancle</button>
+
+                          </td>
+
+
+                        </tr>
+
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+
+              <tr class="parentRow inprogRow">
+                <td role="button" data-toggle="collapse" href="#demo7" aria-expanded="false" aria-controls="demo7"
+                  data-title="WO Ref" class="col-md-4">
+                  <p class="mb-0">Order No. 12456988 | 4 items <span class="itemStatus inprogItem">inprogress</span></p>
+                  <P class="mb-0 normalTxt">Supplier Name</P>
+                </td>
+                <td data-title="Reported" class="col-md-3 text-center">
+                  <p class="mb-0 normalTxt">Grand Total: <strong>8000</strong> AED</p>
+                </td>
+                <td data-title="Type" class="col-md-2 text-center">
+                  <p class="mb-0 normalTxt"><i class="fas fa fa-gift mr-1"></i> 500 pt</p>
+                </td>
+                <td data-title="Completed" class="col-md-3 text-center">
+                  <p class="mb-0 normalTxt">25, December 2019 <i class="fas fa-ellipsis-v ml-1"></i></p>
+                  
+                </td>
+
+              </tr>
+              <tr class="childRow">
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo7">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr>
+                          <td rowspan="2">
+                            <div class="media">
+                              <img src="./images/MGK5158-GSK-Panadol-Extra-455x455.png" alt="Generic placeholder image">
+
+                            </div>
+                          </td>
+
+                          <td>
+                            <div class="media-body">
+                              <h6 class="mb-0"><strong>Commercial</strong></h6>
+                              <span class="mb-0">Form</span>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="secondRow">
+                          <td>
+                            <span><i class="fas fa-cubes mr-1"></i> Quantity <br> 100</span>
+                            <div class="mt-3"><strong>Payment Method:</strong><br>Cheque post date</div>
+                          </td>
+
+                          <td>
+                            <span class="mr-5"><i class="fas fa-star mr-1"></i> Bonus <br> 20</span>
+
+                            <span class="mr-5"><i class="fas fa-database mr-1"></i>WSP (AED)<br> 22
+                            </span>
+                            <span class="mr-4"><i class="fas fa-database mr-1"></i>RSP (AED ) <br> 22</span>
+                            <span class="mr-3"><i class="far fa-money-bill-alt mr-1"></i>Tax <br> 50%</span>
+                            <p class="mt-3 normalTxt">
+                              <span>Comments:</span> <br>
+                              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                              been the industry's has been the industry's and typesetting industry. Lorem Ipsum has been
+                              the Lorem Ipsum is simply.
+
+                            </p>
+                          </td>
+
+
+
+
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+
+                <td class="hiddenRow w-100 text-center" style="vertical-align: middle;" colspan="2">
+                  <div class="collapse" id="demo7">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr class="secondRow">
+                          <td>
+                            <span>Taxes</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+
+                          <td>
+                            <span>Discount</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+
+                          <td>
+                            <span>Total</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo7">
+                    <table class="table table-nested">
+                      <tbody>
+
+                        <tr>
+
+
+                          <td class="text-right">
+                            <span class="cancel" id="cancle">Cancle</span>
+                          </td>
+
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+
+              <tr class="parentRow inprogRow">
+                <td role="button" data-toggle="collapse" href="#demo8" aria-expanded="false" aria-controls="demo8"
+                  data-title="WO Ref" class="col-md-4">
+                  <p class="mb-0">Order No. 12456988 | 4 items <span class="itemStatus inprogItem">inprogress</span></p>
+                  <P class="mb-0 normalTxt">Supplier Name</P>
+                </td>
+                <td data-title="Reported" class="col-md-3 text-center">
+                  <p class="mb-0 normalTxt">Grand Total: <strong>8000</strong> AED</p>
+                </td>
+                <td data-title="Type" class="col-md-2 text-center">
+                  <p class="mb-0 normalTxt"><i class="fas fa fa-gift mr-1"></i> 500 pt</p>
+                </td>
+                <td data-title="Completed" class="col-md-3 text-center">
+                  <p class="mb-0 normalTxt">25, December 2019 <i class="fas fa-ellipsis-v ml-1"></i></p>
+                </td>
+
+              </tr>
+              <tr class="childRow">
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo8">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr>
+                          <td rowspan="2">
+                            <div class="media">
+                              <img src="./images/MGK5158-GSK-Panadol-Extra-455x455.png" alt="Generic placeholder image">
+
+                            </div>
+                          </td>
+
+                          <td>
+                            <div class="media-body">
+                              <h6 class="mb-0"><strong>Commercial</strong></h6>
+                              <span class="mb-0">Form</span>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="secondRow">
+                          <td>
+                            <span><i class="fas fa-cubes mr-1"></i> Quantity <br> 100</span>
+                            <div class="mt-3"><strong>Payment Method:</strong><br>Cheque post date</div>
+                          </td>
+
+                          <td>
+                            <span class="mr-5"><i class="fas fa-star mr-1"></i> Bonus <br> 20</span>
+
+                            <span class="mr-5"><i class="fas fa-database mr-1"></i>WSP (AED)<br> 22
+                            </span>
+                            <span class="mr-4"><i class="fas fa-database mr-1"></i>RSP (AED ) <br> 22</span>
+                            <span class="mr-3"><i class="far fa-money-bill-alt mr-1"></i>Tax <br> 50%</span>
+                            <p class="mt-3 normalTxt">
+                              <span>Comments:</span> <br>
+                              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                              been the industry's has been the industry's and typesetting industry. Lorem Ipsum has been
+                              the Lorem Ipsum is simply.
+
+                            </p>
+                          </td>
+
+
+
+
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+
+                <td class="hiddenRow w-100 text-center" style="vertical-align: middle;" colspan="2">
+                  <div class="collapse" id="demo8">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr class="secondRow">
+                          <td>
+                            <span>Taxes</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+
+                          <td>
+                            <span>Discount</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+
+                          <td>
+                            <span>Total</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo8">
+                    <table class="table table-nested">
+                      <tbody>
+
+                        <tr>
+
+
+                          <td class="text-right">
+                            <span class="cancel" id="cancle">Cancle</span>
+                          </td>
+
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+
+              <tr class="parentRow inprogRow">
+                <td role="button" data-toggle="collapse" href="#demo9" aria-expanded="false" aria-controls="demo9"
+                  data-title="WO Ref" class="col-md-4">
+                  <p class="mb-0">Order No. 12456988 | 4 items <span class="itemStatus inprogItem">inprogress</span></p>
+                  <P class="mb-0 normalTxt">Supplier Name</P>
+                </td>
+                <td data-title="Reported" class="col-md-3 text-center">
+                  <p class="mb-0 normalTxt">Grand Total: <strong>8000</strong> AED</p>
+                </td>
+                <td data-title="Type" class="col-md-2 text-center">
+                  <p class="mb-0 normalTxt"><i class="fas fa fa-gift mr-1"></i> 500 pt</p>
+                </td>
+                <td data-title="Completed" class="col-md-3 text-center">
+                  <p class="mb-0 normalTxt">25, December 2019 <i class="fas fa-ellipsis-v ml-1"></i></p>
+                </td>
+
+              </tr>
+              <tr class="childRow">
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo9">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr>
+                          <td rowspan="2">
+                            <div class="media">
+                              <img src="./images/MGK5158-GSK-Panadol-Extra-455x455.png" alt="Generic placeholder image">
+
+                            </div>
+                          </td>
+
+                          <td>
+                            <div class="media-body">
+                              <h6 class="mb-0"><strong>Commercial</strong></h6>
+                              <span class="mb-0">Form</span>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="secondRow">
+                          <td>
+                            <span><i class="fas fa-cubes mr-1"></i> Quantity <br> 100</span>
+                            <div class="mt-3"><strong>Payment Method:</strong><br>Cheque post date</div>
+                          </td>
+
+                          <td>
+                            <span class="mr-5"><i class="fas fa-star mr-1"></i> Bonus <br> 20</span>
+
+                            <span class="mr-5"><i class="fas fa-database mr-1"></i>WSP (AED)<br> 22
+                            </span>
+                            <span class="mr-4"><i class="fas fa-database mr-1"></i>RSP (AED ) <br> 22</span>
+                            <span class="mr-3"><i class="far fa-money-bill-alt mr-1"></i>Tax <br> 50%</span>
+                            <p class="mt-3 normalTxt">
+                              <span>Comments:</span> <br>
+                              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                              been the industry's has been the industry's and typesetting industry. Lorem Ipsum has been
+                              the Lorem Ipsum is simply.
+
+                            </p>
+                          </td>
+
+
+
+
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+
+                <td class="hiddenRow w-100 text-center" style="vertical-align: middle;" colspan="2">
+                  <div class="collapse" id="demo9">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr class="secondRow">
+                          <td>
+                            <span>Taxes</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+
+                          <td>
+                            <span>Discount</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+
+                          <td>
+                            <span>Total</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo9">
+                    <table class="table table-nested">
+                      <tbody>
+
+                        <tr>
+
+
+                          <td class="text-right">
+                            <span class="cancel" id="cancle">Cancle</span>
+                          </td>
+
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+
+              <tr class="parentRow inprogRow">
+                <td role="button" data-toggle="collapse" href="#demo10" aria-expanded="false" aria-controls="demo10"
+                  data-title="WO Ref" class="col-md-4">
+                  <p class="mb-0">Order No. 12456988 | 4 items <span class="itemStatus inprogItem">inprogress</span></p>
+                  <P class="mb-0 normalTxt">Supplier Name</P>
+                </td>
+                <td data-title="Reported" class="col-md-3 text-center">
+                  <p class="mb-0 normalTxt">Grand Total: <strong>8000</strong> AED</p>
+                </td>
+                <td data-title="Type" class="col-md-2 text-center">
+                  <p class="mb-0 normalTxt"><i class="fas fa fa-gift mr-1"></i> 500 pt</p>
+                </td>
+                <td data-title="Completed" class="col-md-3 text-center">
+                  <p class="mb-0 normalTxt">25, December 2019 <i class="fas fa-ellipsis-v ml-1"></i></p>
+                 
+                </td>
+
+              </tr>
+              <tr class="childRow">
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo10">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr>
+                          <td rowspan="2">
+                            <div class="media">
+                              <img src="./images/MGK5158-GSK-Panadol-Extra-455x455.png" alt="Generic placeholder image">
+
+                            </div>
+                          </td>
+
+                          <td>
+                            <div class="media-body">
+                              <h6 class="mb-0"><strong>Commercial</strong></h6>
+                              <span class="mb-0">Form</span>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="secondRow">
+                          <td>
+                            <span><i class="fas fa-cubes mr-1"></i> Quantity <br> 100</span>
+                            <div class="mt-3"><strong>Payment Method:</strong><br>Cheque post date</div>
+                          </td>
+
+                          <td>
+                            <span class="mr-5"><i class="fas fa-star mr-1"></i> Bonus <br> 20</span>
+
+                            <span class="mr-5"><i class="fas fa-database mr-1"></i>WSP (AED)<br> 22
+                            </span>
+                            <span class="mr-4"><i class="fas fa-database mr-1"></i>RSP (AED ) <br> 22</span>
+                            <span class="mr-3"><i class="far fa-money-bill-alt mr-1"></i>Tax <br> 50%</span>
+                            <p class="mt-3 normalTxt">
+                              <span>Comments:</span> <br>
+                              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                              been the industry's has been the industry's and typesetting industry. Lorem Ipsum has been
+                              the Lorem Ipsum is simply.
+
+                            </p>
+                          </td>
+
+
+
+
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+
+                <td class="hiddenRow w-100 text-center" style="vertical-align: middle;" colspan="2">
+                  <div class="collapse" id="demo10">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr class="secondRow">
+                          <td>
+                            <span>Taxes</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+
+                          <td>
+                            <span>Discount</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+
+                          <td>
+                            <span>Total</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo10">
+                    <table class="table table-nested">
+                      <tbody>
+
+                        <tr>
+
+
+                          <td class="text-right">
+                            <span class="cancel" id="cancle">Cancle</span>
+                          </td>
+
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+  
+            </tbody>
+          </table>
+
+        </div>
+
+      <!-- third tab -->
+
+        <div class="tab-pane fade" id="NotDelivered" role="tabpanel" aria-labelledby="NotDelivered-tab">
+          <div class="form-group pull-right searchbox">
+            <input type="text" class="search form-control" placeholder="Search by order number or commercial name">
+            <span role="button" data-toggle="collapse" href="#filter3" aria-expanded="false"><i
+                class="fal fa fa-filter text-white"></i></span>
+          </div>
+
+          <div class="collapse   mb-3 " id="filter3">
+
+            <div class="filterRow d-flex align-items-center justify-content-center col-12">
+
+              <div class="row w-100">
+                <div class="title col-12 mb-4"><i class="fal fa fa-filter mr-1"></i>Filter</div>
+                <span role="button" data-toggle="collapse" href="#filter3" aria-expanded="false"
+                  class="text-right closeIcon"><i class="fas fa fa-times"></i></span>
+                <div class="col-lg-3 col-md-6 col-12">
+                  <p class="mb-1">Supplier</p>
+                  <select class="form-control">
+                    <option>Select Supplier</option>
+                  </select>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                  <p class="mb-1">Status</p>
+                  <select class="form-control">
+                    <option>Select status</option>
+                  </select>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                  <p class="mb-1">Date from</p>
+                  <input class="form-control" id="datepickerFrom" placeholder="Select date" />
+
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                  <p class="mb-1">Date to</p>
+                  <input class="form-control" id="datepickerTo" placeholder="Select date" />
+                </div>
+
+                <div class="col-12 text-right applyFilter mt-3">
+                  <button class="btn btn-default" id="apply">Apply</button>
+                  <button class="btn btn-default" id="clear">Clear</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <p class="rowsNum float-right mb-1">16 of 300 orders</p>
+          </div>
+          <table class="table table-responsive">
+            <tbody>
+              <tr class="parentRow outDelivRow">
+                <td role="button" data-toggle="collapse" href="#demo11" aria-expanded="false" aria-controls="demo11"
+                  data-title="WO Ref" class="col-md-4">
+                  <p class="mb-0">Order No. 12456988 | 4 items <span class="itemStatus outDelivItem">cancled</span></p>
+                  <P class="mb-0 normalTxt">Supplier Name</P>
+                </td>
+                <td data-title="Reported" class="col-md-3 text-center">
+                  <p class="mb-0 normalTxt">Grand Total: <strong>8000</strong> AED</p>
+                </td>
+                <td data-title="Type" class="col-md-2 text-center">
+                  <p class="mb-0 normalTxt"><i class="fas fa fa-gift mr-1"></i> 500 pt</p>
+                </td>
+                <td data-title="Completed" class="col-md-3 text-center">
+                  <p class="mb-0 normalTxt">25, December 2019 <i class="fas fa-ellipsis-v ml-1" id="showSelect3"></i></p>
+                  <select name="" id="" class="form-control editRow">
+                    <option value="edit">Edit</option>
+                    <option value="cancle">Cancle</option>
+                  </select>
+                </td>
+        
+              </tr>
+              <tr class="childRow">
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo11">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr>
+                          <td rowspan="2">
+                            <div class="media">
+                              <img src="./images/MGK5158-GSK-Panadol-Extra-455x455.png" alt="Generic placeholder image">
+        
+                            </div>
+                          </td>
+        
+                          <td>
+                            <div class="media-body">
+                              <h6 class="mb-0"><strong>Commercial</strong></h6>
+                              <span class="mb-0">Form</span>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="secondRow">
+                          <td>
+                            <span><i class="fas fa-cubes mr-1"></i> Quantity <br> 100</span>
+                            <div class="mt-3"><strong>Payment Method:</strong><br>Cheque post date</div>
+                          </td>
+        
+                          <td>
+                            <span class="mr-5"><i class="fas fa-star mr-1"></i> Bonus <br> 20</span>
+        
+                            <span class="mr-5"><i class="fas fa-database mr-1"></i>WSP (AED)<br> 22
+                            </span>
+                            <span class="mr-4"><i class="fas fa-database mr-1"></i>RSP (AED ) <br> 22</span>
+                            <span class="mr-3"><i class="far fa-money-bill-alt mr-1"></i>Tax <br> 50%</span>
+                            <p class="mt-3 normalTxt">
+                              <span>Comments:</span> <br>
+                              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                              been the industry's has been the industry's and typesetting industry. Lorem Ipsum has been
+                              the Lorem Ipsum is simply.
+        
+                            </p>
+                          </td>
+        
+        
+        
+        
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+        
+                <td class="hiddenRow w-100 text-center" style="vertical-align: middle;" colspan="2">
+                  <div class="collapse" id="demo11">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr class="secondRow">
+                          <td>
+                            <span>Taxes</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+        
+                          <td>
+                            <span>Discount</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+        
+                          <td>
+                            <span>Total</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+        
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo11">
+                    <table class="table table-nested">
+                      <tbody>
+        
+                        <tr>
+        
+        
+                          <td class="text-right">
+                            <span class="cancel" id="cancle">Cancle</span>
+                          </td>
+        
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+        
+              <tr class="canceledRow ">
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo11">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr>
+                          <td>
+                            <div class="media">
+                              <img class="mr-3" src="./images/MGK5158-GSK-Panadol-Extra-455x455.png"
+                                alt="Generic placeholder image">
+                              <div class="media-body">
+                                <h6 class="mb-0"><strong>Commercial</strong></h6>
+                                <span class="mb-0">Form</span>
+                              </div>
+                            </div>
+                          </td>
+        
+        
+                        </tr>
+        
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+        
+                <td class="hiddenRow w-100 text-center" colspan="3">
+                  <div class="collapse" id="demo11">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr>
+                          <td colspan="3">
+                            <p>Are you sure that you want to cancel this item from the order?</p>
+                            <button class="btn btn-default" id="confCancle">Confirm</button>
+                            <button class="btn btn-default" id="refsCanclel">Cancle</button>
+        
+                          </td>
+        
+        
+                        </tr>
+        
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+        
+              <tr class="parentRow outDelivRow">
+                <td role="button" data-toggle="collapse" href="#demo12" aria-expanded="false" aria-controls="demo12"
+                  data-title="WO Ref" class="col-md-4">
+                  <p class="mb-0">Order No. 12456988 | 4 items <span class="itemStatus outDelivItem">cancled</span></p>
+                  <P class="mb-0 normalTxt">Supplier Name</P>
+                </td>
+                <td data-title="Reported" class="col-md-3 text-center">
+                  <p class="mb-0 normalTxt">Grand Total: <strong>8000</strong> AED</p>
+                </td>
+                <td data-title="Type" class="col-md-2 text-center">
+                  <p class="mb-0 normalTxt"><i class="fas fa fa-gift mr-1"></i> 500 pt</p>
+                </td>
+                <td data-title="Completed" class="col-md-3 text-center">
+                  <p class="mb-0 normalTxt">25, December 2019 <i class="fas fa-ellipsis-v ml-1"></i></p>
+                  
+                </td>
+        
+              </tr>
+              <tr class="childRow">
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo12">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr>
+                          <td rowspan="2">
+                            <div class="media">
+                              <img src="./images/MGK5158-GSK-Panadol-Extra-455x455.png" alt="Generic placeholder image">
+        
+                            </div>
+                          </td>
+        
+                          <td>
+                            <div class="media-body">
+                              <h6 class="mb-0"><strong>Commercial</strong></h6>
+                              <span class="mb-0">Form</span>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="secondRow">
+                          <td>
+                            <span><i class="fas fa-cubes mr-1"></i> Quantity <br> 100</span>
+                            <div class="mt-3"><strong>Payment Method:</strong><br>Cheque post date</div>
+                          </td>
+        
+                          <td>
+                            <span class="mr-5"><i class="fas fa-star mr-1"></i> Bonus <br> 20</span>
+        
+                            <span class="mr-5"><i class="fas fa-database mr-1"></i>WSP (AED)<br> 22
+                            </span>
+                            <span class="mr-4"><i class="fas fa-database mr-1"></i>RSP (AED ) <br> 22</span>
+                            <span class="mr-3"><i class="far fa-money-bill-alt mr-1"></i>Tax <br> 50%</span>
+                            <p class="mt-3 normalTxt">
+                              <span>Comments:</span> <br>
+                              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                              been the industry's has been the industry's and typesetting industry. Lorem Ipsum has been
+                              the Lorem Ipsum is simply.
+        
+                            </p>
+                          </td>
+        
+        
+        
+        
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+        
+                <td class="hiddenRow w-100 text-center" style="vertical-align: middle;" colspan="2">
+                  <div class="collapse" id="demo12">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr class="secondRow">
+                          <td>
+                            <span>Taxes</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+        
+                          <td>
+                            <span>Discount</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+        
+                          <td>
+                            <span>Total</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+        
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo12">
+                    <table class="table table-nested">
+                      <tbody>
+        
+                        <tr>
+        
+        
+                          <td class="text-right">
+                            <span class="cancel" id="cancle">Cancle</span>
+                          </td>
+        
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+        
+              <tr class="parentRow outDelivRow">
+                <td role="button" data-toggle="collapse" href="#demo13" aria-expanded="false" aria-controls="demo13"
+                  data-title="WO Ref" class="col-md-4">
+                  <p class="mb-0">Order No. 12456988 | 4 items <span class="itemStatus outDelivItem">cancled</span></p>
+                  <P class="mb-0 normalTxt">Supplier Name</P>
+                </td>
+                <td data-title="Reported" class="col-md-3 text-center">
+                  <p class="mb-0 normalTxt">Grand Total: <strong>8000</strong> AED</p>
+                </td>
+                <td data-title="Type" class="col-md-2 text-center">
+                  <p class="mb-0 normalTxt"><i class="fas fa fa-gift mr-1"></i> 500 pt</p>
+                </td>
+                <td data-title="Completed" class="col-md-3 text-center">
+                  <p class="mb-0 normalTxt">25, December 2019 <i class="fas fa-ellipsis-v ml-1"></i></p>
+                </td>
+        
+              </tr>
+              <tr class="childRow">
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo13">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr>
+                          <td rowspan="2">
+                            <div class="media">
+                              <img src="./images/MGK5158-GSK-Panadol-Extra-455x455.png" alt="Generic placeholder image">
+        
+                            </div>
+                          </td>
+        
+                          <td>
+                            <div class="media-body">
+                              <h6 class="mb-0"><strong>Commercial</strong></h6>
+                              <span class="mb-0">Form</span>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="secondRow">
+                          <td>
+                            <span><i class="fas fa-cubes mr-1"></i> Quantity <br> 100</span>
+                            <div class="mt-3"><strong>Payment Method:</strong><br>Cheque post date</div>
+                          </td>
+        
+                          <td>
+                            <span class="mr-5"><i class="fas fa-star mr-1"></i> Bonus <br> 20</span>
+        
+                            <span class="mr-5"><i class="fas fa-database mr-1"></i>WSP (AED)<br> 22
+                            </span>
+                            <span class="mr-4"><i class="fas fa-database mr-1"></i>RSP (AED ) <br> 22</span>
+                            <span class="mr-3"><i class="far fa-money-bill-alt mr-1"></i>Tax <br> 50%</span>
+                            <p class="mt-3 normalTxt">
+                              <span>Comments:</span> <br>
+                              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                              been the industry's has been the industry's and typesetting industry. Lorem Ipsum has been
+                              the Lorem Ipsum is simply.
+        
+                            </p>
+                          </td>
+        
+        
+        
+        
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+        
+                <td class="hiddenRow w-100 text-center" style="vertical-align: middle;" colspan="2">
+                  <div class="collapse" id="demo13">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr class="secondRow">
+                          <td>
+                            <span>Taxes</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+        
+                          <td>
+                            <span>Discount</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+        
+                          <td>
+                            <span>Total</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+        
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo13">
+                    <table class="table table-nested">
+                      <tbody>
+        
+                        <tr>
+        
+        
+                          <td class="text-right">
+                            <span class="cancel" id="cancle">Cancle</span>
+                          </td>
+        
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+        
+              <tr class="parentRow outDelivRow">
+                <td role="button" data-toggle="collapse" href="#demo14" aria-expanded="false" aria-controls="demo14"
+                  data-title="WO Ref" class="col-md-4">
+                  <p class="mb-0">Order No. 12456988 | 4 items <span class="itemStatus outDelivItem">cancled</span></p>
+                  <P class="mb-0 normalTxt">Supplier Name</P>
+                </td>
+                <td data-title="Reported" class="col-md-3 text-center">
+                  <p class="mb-0 normalTxt">Grand Total: <strong>8000</strong> AED</p>
+                </td>
+                <td data-title="Type" class="col-md-2 text-center">
+                  <p class="mb-0 normalTxt"><i class="fas fa fa-gift mr-1"></i> 500 pt</p>
+                </td>
+                <td data-title="Completed" class="col-md-3 text-center">
+                  <p class="mb-0 normalTxt">25, December 2019 <i class="fas fa-ellipsis-v ml-1"></i></p>
+                </td>
+        
+              </tr>
+              <tr class="childRow">
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo14">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr>
+                          <td rowspan="2">
+                            <div class="media">
+                              <img src="./images/MGK5158-GSK-Panadol-Extra-455x455.png" alt="Generic placeholder image">
+        
+                            </div>
+                          </td>
+        
+                          <td>
+                            <div class="media-body">
+                              <h6 class="mb-0"><strong>Commercial</strong></h6>
+                              <span class="mb-0">Form</span>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="secondRow">
+                          <td>
+                            <span><i class="fas fa-cubes mr-1"></i> Quantity <br> 100</span>
+                            <div class="mt-3"><strong>Payment Method:</strong><br>Cheque post date</div>
+                          </td>
+        
+                          <td>
+                            <span class="mr-5"><i class="fas fa-star mr-1"></i> Bonus <br> 20</span>
+        
+                            <span class="mr-5"><i class="fas fa-database mr-1"></i>WSP (AED)<br> 22
+                            </span>
+                            <span class="mr-4"><i class="fas fa-database mr-1"></i>RSP (AED ) <br> 22</span>
+                            <span class="mr-3"><i class="far fa-money-bill-alt mr-1"></i>Tax <br> 50%</span>
+                            <p class="mt-3 normalTxt">
+                              <span>Comments:</span> <br>
+                              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                              been the industry's has been the industry's and typesetting industry. Lorem Ipsum has been
+                              the Lorem Ipsum is simply.
+        
+                            </p>
+                          </td>
+        
+        
+        
+        
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+        
+                <td class="hiddenRow w-100 text-center" style="vertical-align: middle;" colspan="2">
+                  <div class="collapse" id="demo14">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr class="secondRow">
+                          <td>
+                            <span>Taxes</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+        
+                          <td>
+                            <span>Discount</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+        
+                          <td>
+                            <span>Total</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+        
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo14">
+                    <table class="table table-nested">
+                      <tbody>
+        
+                        <tr>
+        
+        
+                          <td class="text-right">
+                            <span class="cancel" id="cancle">Cancle</span>
+                          </td>
+        
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+        
+              <tr class="parentRow outDelivRow">
+                <td role="button" data-toggle="collapse" href="#demo15" aria-expanded="false" aria-controls="demo15"
+                  data-title="WO Ref" class="col-md-4">
+                  <p class="mb-0">Order No. 12456988 | 4 items <span class="itemStatus outDelivItem">cancled</span></p>
+                  <P class="mb-0 normalTxt">Supplier Name</P>
+                </td>
+                <td data-title="Reported" class="col-md-3 text-center">
+                  <p class="mb-0 normalTxt">Grand Total: <strong>8000</strong> AED</p>
+                </td>
+                <td data-title="Type" class="col-md-2 text-center">
+                  <p class="mb-0 normalTxt"><i class="fas fa fa-gift mr-1"></i> 500 pt</p>
+                </td>
+                <td data-title="Completed" class="col-md-3 text-center">
+                  <p class="mb-0 normalTxt">25, December 2019 <i class="fas fa-ellipsis-v ml-1"></i></p>
+                 
+                </td>
+        
+              </tr>
+              <tr class="childRow">
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo15">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr>
+                          <td rowspan="2">
+                            <div class="media">
+                              <img src="./images/MGK5158-GSK-Panadol-Extra-455x455.png" alt="Generic placeholder image">
+        
+                            </div>
+                          </td>
+        
+                          <td>
+                            <div class="media-body">
+                              <h6 class="mb-0"><strong>Commercial</strong></h6>
+                              <span class="mb-0">Form</span>
+                            </div>
+                          </td>
+                        </tr>
+                        <tr class="secondRow">
+                          <td>
+                            <span><i class="fas fa-cubes mr-1"></i> Quantity <br> 100</span>
+                            <div class="mt-3"><strong>Payment Method:</strong><br>Cheque post date</div>
+                          </td>
+        
+                          <td>
+                            <span class="mr-5"><i class="fas fa-star mr-1"></i> Bonus <br> 20</span>
+        
+                            <span class="mr-5"><i class="fas fa-database mr-1"></i>WSP (AED)<br> 22
+                            </span>
+                            <span class="mr-4"><i class="fas fa-database mr-1"></i>RSP (AED ) <br> 22</span>
+                            <span class="mr-3"><i class="far fa-money-bill-alt mr-1"></i>Tax <br> 50%</span>
+                            <p class="mt-3 normalTxt">
+                              <span>Comments:</span> <br>
+                              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
+                              been the industry's has been the industry's and typesetting industry. Lorem Ipsum has been
+                              the Lorem Ipsum is simply.
+        
+                            </p>
+                          </td>
+        
+        
+        
+        
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+        
+                <td class="hiddenRow w-100 text-center" style="vertical-align: middle;" colspan="2">
+                  <div class="collapse" id="demo15">
+                    <table class="table table-nested">
+                      <tbody>
+                        <tr class="secondRow">
+                          <td>
+                            <span>Taxes</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+        
+                          <td>
+                            <span>Discount</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+        
+                          <td>
+                            <span>Total</span>
+                            <p class="redColor">20 AED</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+        
+                <td class="hiddenRow w-100">
+                  <div class="collapse" id="demo15">
+                    <table class="table table-nested">
+                      <tbody>
+        
+                        <tr>
+        
+        
+                          <td class="text-right">
+                            <span class="cancel" id="cancle">Cancle</span>
+                          </td>
+        
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+        
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="footer">
+        <p>♥ from the Yeoman team</p>
+      </div> -->
+  </div>
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+  <script>
+    (function (b, o, i, l, e, r) {
+      b.GoogleAnalyticsObject = l; b[l] || (b[l] =
+        function () { (b[l].q = b[l].q || []).push(arguments) }); b[l].l = +new Date;
+      e = o.createElement(i); r = o.getElementsByTagName(i)[0];
+      e.src = 'https://www.google-analytics.com/analytics.js';
+      r.parentNode.insertBefore(e, r)
+    }(window, document, 'script', 'ga'));
+    ga('create', 'UA-XXXXX-X'); ga('send', 'pageview');
+  </script>
+  <!-- build:js scripts/vendor.js -->
+  <script type="text/javascript" src="/node_modules/jquery/dist/jquery.min.js"></script>
+  <script type="text/javascript" src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js"
+    integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
+
+  <!-- endbuild -->
+  <!-- build:js scripts/main.js -->
+  <script src="scripts/datepicker.js"></script>
+  <script src="scripts/main.js"></script>
+  <!-- endbuild -->
+</body>
+
+</html>

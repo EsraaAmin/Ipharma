@@ -1,0 +1,179 @@
+@import 'datepicker';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css';
+@import 'variables';
+@import 'fonts';
+@import 'homeTabs';
+@import 'search';
+
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* Space out content a bit */
+body {
+  padding-top: 2rem;
+  padding-bottom: 1.5rem;
+  background-color: $backgroundColor !important;
+  
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+
+
+/* Custom page header */
+.header {
+  padding-bottom: 1rem;
+
+  .firstLetter {
+    width: 20px;
+    height: 20px;
+    padding: .5em 1em;
+    background: $secondColor;
+    border-radius: 20px 0 0 20px;
+    text-align: center;
+    color: $whiteColor;
+    position: relative;
+    
+    span {
+      position: absolute;
+    }
+  }
+  .logo {
+    background: $mainColor;
+    padding: .5em;
+    color: #fff;
+    border-radius: 0 20px 20px 0;
+    margin-left: 1px;
+    text-transform: capitalize;
+    font-weight: bold;
+
+  }
+
+  .dropdown .dropdown-toggle {
+    border-radius: 20px !important;
+    background-color: #E4EDF7 !important;
+    font-family: HelveticaLTStd;
+    font-size: 13px;
+    border: none;
+    color: $mainColor;
+    width: 200px;
+
+    @media(max-width: 576px){
+      width: 160px;
+    }
+
+    img {
+      float: left;
+      width: 20px;
+    }
+  }
+  .logoContainer {
+    @media(max-width: 767px){
+      display: block;
+      margin-bottom: 3em;
+    }
+  }
+
+
+  .nav-pills {
+    span{
+      
+      border-radius: 50%;
+      .fas {
+        color: $mainColor;
+        background: #E4EDF7;
+        border-radius: 50%;
+        padding: .5em;
+
+        @media(max-width: 576px){
+          background: unset;
+          border-radius: unset;
+          padding: unset;
+        }
+  
+      }
+    }
+  
+  }
+}
+
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 3rem;
+}
+.form-control:focus {
+  box-shadow: unset !important;
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 1.5rem;
+  color: #777;
+  border-top: .05rem solid #e5e5e5;
+}
+
+.container-narrow > hr {
+  margin: 2rem 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: .05rem solid #e5e5e5;
+}
+.jumbotron .btn {
+  padding: .75rem 1.5rem;
+  font-size: 1.5rem;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 3rem 0;
+}
+.marketing p + h4 {
+  margin-top: 1.5rem;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 48em) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 2rem;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+
+
+
+
+

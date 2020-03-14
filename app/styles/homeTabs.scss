@@ -1,0 +1,348 @@
+@import 'variables';
+@import 'fonts';
+
+.cardTitle {
+    color: $mainColor;
+    font-size: 17px;
+    font-family: HelveticaLTStd;
+}
+
+.tabsContainer{
+    background-color: $whiteColor;
+    padding: 1em;
+    border-radius: 3px;
+
+    p{
+        font-family: HelveticaLTStd;
+        font-size: 14px;
+        color: $boldTextColor;
+        font-weight: bold;
+        .itemStatus {
+            font-size: 11px;
+            margin-left: .5em;
+        }
+        .itemStatus.newItem {
+            color: $mainColor;
+        }
+        .itemStatus.inprogItem {
+            color: $inprogressColor;
+        }
+        .itemStatus.outDelivItem {
+            color: $outdeliveryColor;
+        }
+
+    }
+
+    .normalTxt {
+        font-weight: normal;
+        font-size: 13px;
+    }
+    .inprogRow {
+        background-color: $inprogressRowColor !important;
+    }
+
+    .outDelivRow {
+        background-color: $outdeliveryRowColor !important;
+    }
+
+    .rowsNum {
+        font-size: 13px;
+    }
+    .filterRow{
+        background-color: $backgroundColor;
+        padding: 2em 0;
+        .title {
+            color: $mainColor;
+        }
+    }
+    .closeIcon {
+        position: absolute;
+        right: 1em;
+        top: 1em;
+        cursor: pointer;
+        .fa-times {
+            color: #a9a7a7;
+        }
+    }
+
+.nav-tabs,.nav-link.active {
+    border: none;
+}
+.fa-cubes,.fa-money-bill-alt {
+    color: $mainColor;
+}
+.fa-star,.fa-database {
+    color: $secondColor;
+}
+.fa-ellipsis-v {
+    opacity: .5;
+}
+
+
+.nav-item {
+    .nav-link {
+        color: $greyColor;
+        padding: unset;
+        margin: .5rem 1rem;
+        font-family: HelveticaLTStd;
+        font-weight: bold;
+        font-size: 14px;
+    
+        &:hover {
+            border: none;
+        }
+        &::after {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background-color: $badgeColor;
+            position: absolute;
+            content: "";
+        }
+    }
+    .nav-link.active {
+        color: $mainColor;
+        border-bottom: 1px solid;
+        &::after {
+           content: unset;
+        }
+    }
+}
+
+.tab-content {
+    .searchbox { 
+        .form-control{
+            width: 95%;
+            display: inline;
+            @media(max-width: 767px){
+                width: 85%
+            }
+        }
+        span {
+            cursor: pointer;
+            width: 4%;
+            height: 4%;
+            background: $secondColor;
+            display: inline-block;
+            padding: .375rem .75rem;
+            text-align: center;
+            border-radius: 3px;
+            @media(max-width: 768px){
+                padding: .375rem .5rem;
+            }
+            @media(max-width: 767px){
+                width: 10%;
+            }
+        }
+    }
+}
+
+.table .parentRow {
+    background-color: $nowRowColor;
+    border-bottom: 5px solid #fff;
+
+    .fa-gift {
+        color: $secondColor;
+    }
+}
+.childRow {
+    background-color: $whiteColor;
+ 
+}
+.applyFilter {
+    button {
+        border: 1px solid $mainColor;
+        border-radius: 20px;
+        color: $mainColor;
+        transition: all 0.5s ease-in-out;
+        width: 100px;
+        margin: .5em;
+        font-family: HelveticaLTStd;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $mainColor;
+            color: $whiteColor;
+        }
+    }
+}
+
+.canceledRow {
+    display: none;
+
+    button {
+        border: 1px solid #EB4D4B;
+        border-radius: 20px;
+        color: #EB4D4B;
+        transition: all 0.5s ease-in-out;
+        width: 120px;
+        font-family: HelveticaLTStd;
+        font-size: 14px;
+        font-weight: bold;
+        margin: .5em;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #EB4D4B;
+            color: $whiteColor;
+        }
+    }
+}
+
+.childRow.confirmed {
+    opacity : 0.5 !important;
+    .cancleBg {
+        background-image: url(../images/cancelled.png);
+        background-repeat: no-repeat;
+        background-position-y: bottom;
+        background-position-x: right;
+      }
+      .cancel {
+          display: none;
+      }
+}
+
+.table .parentRow td {
+    min-width: 157px;
+}
+
+.table td {
+    padding: .75rem;
+    border: none;
+    vertical-align: middle;
+}
+
+.childRow td{
+    vertical-align: top;
+    padding: 10px;
+    font-size: 12px;
+    font-family: HelveticaLTStd;
+    color: $boldTextColor;
+
+    span {
+        color: $boldTextColor;
+        text-align: center;
+
+        @media(max-width: 991px){
+            display: block;
+            text-align: left !important;
+        }
+    }
+}
+
+.secondRow span {
+    display: inline-block;
+    
+    font-weight: bold;
+}
+.redColor {
+    color: $redColor;
+}
+
+.cancel {
+    color: $mainColor !important;
+    font-size: 14px;
+    cursor: pointer;
+}
+.parentRow {
+    cursor: pointer;
+}
+
+// .details span {
+//     margin-right: 5em;
+// }
+
+
+.hiddenRow {
+    padding: 0 !important;
+    &:before {
+    display: none;
+    }
+    table {
+    margin-bottom: 0;
+    }
+
+    }
+
+    .editRow {
+        display: none;
+        position: absolute;
+        transition: all .5s ease-in-out;
+        left: -1em;
+    }
+    .showSelect {
+        display: block !important;
+    }
+    .fa-times-circle {
+        color: #eb4d4b;
+    }
+    
+@media only screen and (max-width: 767px) {
+
+/* Taken from elvery.net/demo/responsive-tables */
+
+/* Force table to not be like tables anymore */
+#no-more-tables > table, 
+#no-more-tables > table > thead, 
+#no-more-tables > table > tbody, 
+#no-more-tables > table > thead > tr > th, 
+#no-more-tables > table > tbody > tr > td, 
+#no-more-tables > table > tbody > tr { 
+display: block; 
+}
+
+/* Hide table headers (but not display: none;, for accessibility) */
+#no-more-tables > table > thead > tr { 
+position: absolute;
+top: -9999px;
+left: -9999px;
+}
+
+#no-more-tables > table > tbody > tr { border: 1px solid #ccc; }
+
+#no-more-tables > table > tbody > tr > td { 
+/* Behave  like a "row" */
+border: none;
+border-bottom: 1px solid #eee; 
+position: relative;
+padding-left: 36.1%; 
+white-space: normal;
+text-align:left;
+}
+
+#no-more-tables > table > tbody > tr > td:before { 
+/* Now like a table header */
+position: absolute;
+/* Top/left values mimic padding */
+top: 0;
+left: 0;
+width: 33.33333333%; 
+padding-right: 10px; 
+white-space: nowrap;
+text-align:left;
+font-weight: bold;
+background-color: #f5f5f5;
+padding: 8px;
+}
+
+/*
+Label the data
+*/
+#no-more-tables td:before { content: attr(data-title); }
+
+.table-nested,
+.table-nested tbody,
+.table-nested td,
+.table-nested tr,
+.table-nested th,
+.table-nested tr > td {
+width: 100%;
+display: block;
+}
+}
+
+}
+
+

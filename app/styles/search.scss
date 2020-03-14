@@ -1,0 +1,38 @@
+@import 'variables';
+@import 'fonts';
+
+.searchCard {
+    .title {
+        color: $boldTextColor;
+        font-family: HelveticaLTStd;
+        font-weight: bold;
+
+        .fa-store {
+            color: $mainColor;
+        }
+
+    }
+    .form-group {
+
+        .form-control {
+            width: 95%;
+            display: inline;
+        }
+    
+        .filterBtn {
+            cursor: pointer;
+            width: 4%;
+            height: 4%;
+            background: #abd93e;
+            display: inline-block;
+            padding: .375rem .75rem;
+            text-align: center;
+            border-radius: 3px;
+        }
+    }
+
+    .noResult {
+        color: $mainColor;
+    }
+
+}
