@@ -7,7 +7,7 @@
     "bootstrap": "^4.3.1",
     "datepicker-bootstrap": "^1.9.13",
     "fontawesome": "^5.6.3",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "modernizr": "^3.7.1",
     "popper.js": "^1.15.0"
   },
